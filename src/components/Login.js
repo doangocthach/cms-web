@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "../utils/axios";
 import "./login.css";
 export default () => {
-  const [state, setState] = useState({ name: "", email: "" });
+  // const [state, setState] = useState({ name: "", email: "" });
+  const [state, setState] = useState({ email: "" });
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -25,14 +26,14 @@ export default () => {
               handleFormSubmit(e);
             }}
           >
-            <input
+            {/* <input
               className="workspace-form__name"
               placeholder="Enter your name workspace"
               onChange={(e) => {
                 setState({ ...state, name: e.target.value });
               }}
             />
-            <br />
+            <br /> */}
             <input
               className="workspace-form__email"
               placeholder="Enter your email"

@@ -4,6 +4,9 @@
   max-width: 700px;
 }
 
+.create-workspace-wrapper {
+  width: 100%;
+}
 .main-content-wrapper h1 {
   font-size: 50px;
   line-height: 56px;
@@ -19,9 +22,10 @@
 .workspace-form {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  max-width: 500px;
   margin: auto;
   margin-top: 10px;
+  padding: 1rem;
 }
 
 .main-content-wrapper p {
@@ -47,4 +51,8 @@
   height: 44px;
   min-width: 96px;
   padding: 0 16px 3px;
+}
+
+.main-content-wrapper button:hover {
+  background-color: rgb(26, 105, 105);
 }
