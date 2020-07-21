@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { TextField, Button } from "@material-ui/core";
+
 import axios from "../utils/axios";
 import "./login.css";
+
 export default () => {
-  // const [state, setState] = useState({ name: "", email: "" });
-  const [state, setState] = useState({ email: "" });
+  const [state, setState] = useState({ email: "", pwd: "" });
+  // const [state, setState] = useState({ email: "" });
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    let a = await axios.post("/create", state);
-    console.log(a);
+    let a = await axios.post("/login", state);
   };
   return (
     <React.Fragment>
@@ -26,22 +28,30 @@ export default () => {
               handleFormSubmit(e);
             }}
           >
-            {/* <input
-              className="workspace-form__name"
-              placeholder="Enter your name workspace"
-              onChange={(e) => {
-                setState({ ...state, name: e.target.value });
-              }}
-            />
-            <br /> */}
-            <input
-              className="workspace-form__email"
-              placeholder="Enter your email"
-              onChange={(e) => {
-                setState({ ...state, email: e.target.value });
-              }}
-            />
-            <button type="submit">Login</button>
+            <div className="input-wrapper">
+              <TextField
+                id="standard-basic"
+                label="Email"
+                className="workspace-form__email workspace-form__input"
+                placeholder="Enter your email"
+                onChange={(e) => {
+                  setState({ ...state, email: e.target.value });
+                }}
+              />
+            </div>
+            <br />
+            <div className="input-wrapper">
+              <TextField
+                type="password"
+                label="Password"
+                className="workspace-form__name workspace-form__input pwd-input"
+                placeholder="Enter your password"
+                onChange={(e) => {
+                  setState({ ...state, pwd: e.target.value });
+                }}
+              />
+            </div>
+            <Button type="submit">Login</Button>
           </form>
         </div>
       </div>

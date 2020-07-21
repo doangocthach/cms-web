@@ -7,6 +7,11 @@
 .create-workspace-wrapper {
   width: 100%;
 }
+
+label {
+  color: #3d7c7c !important;
+}
+
 .main-content-wrapper h1 {
   font-size: 50px;
   line-height: 56px;
@@ -14,13 +19,26 @@
   text-align: center;
 }
 
-.workspace-form input {
+.workspace-form .workspace-form__input {
+  width: 100%;
   padding: 10px;
   margin-bottom: 1rem;
+  box-sizing: border-box;
 }
+
+/* .pwd-input {
+  position: relative;
+}
+
+.pwd-input::after {
+  content: "👁";
+  position: absolute;
+  display: block;
+} */
 
 .workspace-form {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   max-width: 500px;
   margin: auto;
@@ -50,7 +68,6 @@
   font-weight: 900;
   height: 44px;
   min-width: 96px;
-  padding: 0 16px 3px;
 }
 
 .main-content-wrapper button:hover {
