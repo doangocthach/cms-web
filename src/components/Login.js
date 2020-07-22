@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 import queryString from "query-string";
+import { useHistory } from "react-router-dom";
 import axios from "../utils/axios";
 import "./login.css";
 
 export default (props) => {
   const { email } = queryString.parse(props.location.search) || "";
   const [state, setState] = useState({ email: email, password: "" });
+  let history = useHistory();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    let loginStatus = await axios.post("/api/user/login", state);
-    if ((loginStatus.status = 201)) {
-      
+    let loginStatus = await axios.post("/api/workspace/login", state);
+    console.log(loginStatus);
+    if ((loginStatus.status = 200)) {
+      history.push("/");
     }
   };
   return (
