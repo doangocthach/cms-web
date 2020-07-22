@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
-
+import queryString from "query-string";
 import axios from "../utils/axios";
 import "./login.css";
 
-export default () => {
-  const [state, setState] = useState({ email: "", pwd: "" });
-  // const [state, setState] = useState({ email: "" });
+export default (props) => {
+  const { email } = queryString.parse(props.location.search) || "";
+  const [state, setState] = useState({ email: email, password: "" });
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    let a = await axios.post("/login", state);
+    let loginStatus = await axios.post("/api/user/login", state);
+    if ((loginStatus.status = 201)) {
+      
+    }
   };
   return (
     <React.Fragment>
@@ -34,6 +37,7 @@ export default () => {
                 label="Email"
                 className="workspace-form__email workspace-form__input"
                 placeholder="Enter your email"
+                value={email}
                 onChange={(e) => {
                   setState({ ...state, email: e.target.value });
                 }}
@@ -47,7 +51,7 @@ export default () => {
                 className="workspace-form__name workspace-form__input pwd-input"
                 placeholder="Enter your password"
                 onChange={(e) => {
-                  setState({ ...state, pwd: e.target.value });
+                  setState({ ...state, password: e.target.value });
                 }}
               />
             </div>
