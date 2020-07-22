@@ -1,0 +1,19 @@
+.side-bar-wrapper {
+  background-color: #3d7c7c;
+  width: 200px;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.search__button {
+  background-color: #3d7c7c !important;
+  color: white !important;
+}
+
+.search-input {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  width: 100%;
+  position: relative;
+}
